@@ -1,0 +1,56 @@
+/* ==|====================
+   Layout/Main
+   ======================= */
+#main {
+  @include flex-center;
+}
+.main__container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 200px max-content;
+  padding: 120px 0 90px;
+}
+
+.main__container--left {
+  grid-column: span 7;
+}
+
+.main__container--right {
+  background: white;
+  height: auto;
+  grid-row: 2;
+  grid-column: 6 / -1;
+  padding: 60px 0 0 60px;
+  h3 {
+    font-family: $font-2;
+    font-size: 45px;
+    text-transform: uppercase;
+    color: $dark;
+  }
+  p {
+    line-height: 28px;
+    margin-top: 20px;
+    color: $very-dark-gray;
+  }
+}
+
+@media screen and (max-width: 964px) {
+  .main__container--left {
+    grid-column: span 9;
+  }
+  .main__container--right {
+    grid-column: 5 / -1;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+  }
+  .main__container--right {
+    padding: 0;
+    padding-top: 50px;
+    text-align: center;
+  }
+}
